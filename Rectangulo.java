@@ -2,11 +2,13 @@ package rectangulos;
 
 public class Rectangulo {
 
-    private Coordenada esquina1; 
-    private Coordenada esquina2; 
+    private Coordenada esquina1;                    // Representa el punto inferior izquierdo (minimos).
+    private Coordenada esquina2;                    // Representa el punto superior derecho (maximos).
 
     public Rectangulo(Coordenada c1, Coordenada c2) {
-
+        
+        // Normalizamos las coordenadas para que esquina1 siempre sea la menor y esquina2 la mayor.
+        
         double xmin = Math.min(c1.getX(), c2.getX());
         double xmax = Math.max(c1.getX(), c2.getX());
 
@@ -33,7 +35,7 @@ public class Rectangulo {
         esquina2 = c;
     }
 
-    public double calculoArea() {
+    public double calculoArea() {                   // Calcula el área multiplicando base por altura.
 
         double base = esquina2.getX() - esquina1.getX();
         double altura = esquina2.getY() - esquina1.getY();
