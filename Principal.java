@@ -1,8 +1,9 @@
 package rectangulos;
 import java.util.Scanner;
 
-public class Principal {
-
+public class Principal { 
+	
+     // Crea un nuevo rectángulo basado en los puntos donde se cruzan r1 y r2.
 	public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
 
 	    double x1 = Math.max(r1.getEsquina1().getX(), r2.getEsquina1().getX());
@@ -21,7 +22,8 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
+     // ... (Lectura de datos omitida por brevedad). 
+		
         System.out.println("Ingrese la esquina del 1er rectángulo:");
         double x1 = sc.nextDouble();
         double y1 = sc.nextDouble();
@@ -43,7 +45,8 @@ public class Principal {
 
         mostrarRectangulo("A", A);
         mostrarRectangulo("B", B);
-
+		
+     // Estructura de decisión para evaluar los 3 casos solicitados.
         if (Verificador.esSobrePos(A, B)) {
 
             System.out.println("Rectangulos A y B se sobreponen");
