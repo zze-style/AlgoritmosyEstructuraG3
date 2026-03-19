@@ -21,10 +21,10 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        
+		
+        // Crea el contenedor con una capacidad de 3 elementos.
         ContainerRect contenedor = new ContainerRect(3);
       
-        
 
         System.out.println("Ingrese la esquina del 1er rectángulo:");
         double x1 = sc.nextDouble();
@@ -42,9 +42,11 @@ public class Principal {
         double x4 = sc.nextDouble();
         double y4 = sc.nextDouble();
 
+		//... (Lectura de coordenadas de A y B). 
         Rectangulo A = new Rectangulo(new Coordenada(x1, y1), new Coordenada(x2, y2));
         Rectangulo B = new Rectangulo(new Coordenada(x3, y3), new Coordenada(x4, y4));
-        
+
+		// Agregamos los rectángulos base al contenedor inmediatamente después de crearlos.
         contenedor.addRectangulo(A);
         contenedor.addRectangulo(B);
 
@@ -56,6 +58,8 @@ public class Principal {
             System.out.println("Rectangulos A y B se sobreponen");
 
             Rectangulo rSobre = rectanguloSobre(A, B);
+			
+		// Si hay sobreposición, se crea un tercer rectángulo y se guarda en el contenedor.
             contenedor.addRectangulo(rSobre);
             System.out.println("Area de sobreposicion = " + rSobre.calculoArea());
 
@@ -67,6 +71,8 @@ public class Principal {
 
             System.out.println("Rectangulos A y B son disjuntos");
         }
+
+		// Muestra el listado final del contenedor usando el método toString de ContainerRect.
         System.out.println("----------------------------------------------------------");
         System.out.println("                         CONTENEDOR                       ");
         System.out.println(contenedor.toString());
