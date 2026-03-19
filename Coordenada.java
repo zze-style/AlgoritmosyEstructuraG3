@@ -35,7 +35,7 @@ public class Coordenada {
 		return Math.sqrt((Math.pow(ex, 2))+(Math.pow(ye, 2)));
 	}
 	@Override
-	public String toString(){                //Formatea la coordenada para imprimirla como [x,y].
+	public String toString(){                // Formatea la coordenada para imprimirla como [x,y].
 		return "[" + this.x + "," + this.y + "]";
 	}
 }
