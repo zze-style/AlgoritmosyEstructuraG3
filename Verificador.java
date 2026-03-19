@@ -1,7 +1,7 @@
 package rectangulos;
 
 public class Verificador {
-
+     // Verifica si hay intersección en ambos ejes simultáneamente.
     public static boolean esSobrePos(Rectangulo r1, Rectangulo r2) {
 
         return (r1.getEsquina1().getX() < r2.getEsquina2().getX() &&
@@ -9,7 +9,7 @@ public class Verificador {
                 r1.getEsquina1().getY() < r2.getEsquina2().getY() &&
                 r1.getEsquina2().getY() > r2.getEsquina1().getY());
     }
-
+    // Verifica si un borde de r1 coincide exactamente con un borde de r2.
     public static boolean esJunto(Rectangulo r1, Rectangulo r2) {
 
         boolean tocaX = r1.getEsquina2().getX() == r2.getEsquina1().getX() ||
@@ -17,7 +17,8 @@ public class Verificador {
 
         boolean tocaY = r1.getEsquina2().getY() == r2.getEsquina1().getY() ||
                         r2.getEsquina2().getY() == r1.getEsquina1().getY();
-
+        
+    // Verifica que estén alineados en el otro eje para que realmente se "toquen".
         boolean rangoY = r1.getEsquina1().getY() <= r2.getEsquina2().getY() &&
                          r1.getEsquina2().getY() >= r2.getEsquina1().getY();
 
