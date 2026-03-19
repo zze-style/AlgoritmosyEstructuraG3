@@ -11,6 +11,7 @@ public class Zona {
 		this.pureza = pureza;
 	}
 
+	                             // Regla de negocio: Calcula el valor multiplicando cantidad por pureza.
 	public double getValorEconomico() {
 		return cantidad * pureza;
 	}
@@ -20,7 +21,7 @@ public class Zona {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() {   // Formato visual para mostrar la información de la zona.
 		return mineral + " | Cant: " + cantidad + " | Pureza: " + pureza;
 	}
 }
