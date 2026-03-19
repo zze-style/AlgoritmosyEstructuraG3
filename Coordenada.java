@@ -4,7 +4,7 @@ public class Coordenada {
 	private double x;
 	private double y;
 	public Coordenada(){}
-	public Coordenada(double x,double y){
+	public Coordenada(double x,double y){   // Constructor que inicializa los puntos X e Y.
 		this.x=x;
 		this.y=y;
 	}
@@ -35,7 +35,7 @@ public class Coordenada {
 		return Math.sqrt((Math.pow(ex, 2))+(Math.pow(ye, 2)));
 	}
 	@Override
-	public String toString(){
+	public String toString(){                //Formatea la coordenada para imprimirla como [x,y].
 		return "[" + this.x + "," + this.y + "]";
 	}
 }
