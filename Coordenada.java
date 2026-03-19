@@ -4,7 +4,7 @@ public class Coordenada {
 	private double x;
 	private double y;
 	public Coordenada(){}
-	public Coordenada(double x,double y){   // Constructor que inicializa los puntos X e Y.
+	public Coordenada(double x,double y){     // Constructor que inicializa los puntos X e Y.
 		this.x=x;
 		this.y=y;
 	}
