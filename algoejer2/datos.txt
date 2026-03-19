@@ -1,0 +1,10 @@
+3 3
+oro 10 0.9
+plata 8 0.7
+oro 5 0.8
+cobre 12 0.6
+oro 7 0.95
+plata 6 0.85
+cobre 9 0.5
+oro 11 0.92
+plata 4 0.75
