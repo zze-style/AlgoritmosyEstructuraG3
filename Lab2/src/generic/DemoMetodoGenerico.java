@@ -24,9 +24,9 @@ class DemoMetodoGenerico {
 			System.out.println("nums es igual a num3");
 		if (igualArrays(nums,nums4))
 			System.out.println("nums es igual a nums4");
-		// Crea un array de double
-		//Double dvals[]={1.1,2.2,3.3,4.4,5.5};
-		//if(igualArrays(nums,dvals))
-			//System.out.println("nums es igual a dvals"); //D
+		// Crea un array de double                         A)
+		//Double dvals[]={1.1,2.2,3.3,4.4,5.5};            B) En esta línea creamos un arreglo de doubles
+		//if(igualArrays(nums,dvals))                      C) Esta condicional nos imprimiría el resultado en caso que el arreglo nums sea igual al arreglo dvals. Esta línea da error, debido a que al asignar "nums", el programa espera que "dvals" también sea INTEGER, pero como no lo es, error.
+			//System.out.println("nums es igual a dvals"); //D Imprime la confirmación en caso la condicional se cumpliese
 	}	
 }
