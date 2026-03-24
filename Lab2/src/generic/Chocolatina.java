@@ -1,5 +1,7 @@
 package generic;
 
+import java.util.Objects;
+
 public class Chocolatina {
 	private String marca;
 	public Chocolatina(String marca) {
@@ -11,4 +13,17 @@ public class Chocolatina {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Chocolatina other = (Chocolatina) obj;
+        return Objects.equals(marca, other.marca);
+    }
+
+    @Override
+    public String toString() {
+        return "Chocolatina " + marca;
+    }
 }
