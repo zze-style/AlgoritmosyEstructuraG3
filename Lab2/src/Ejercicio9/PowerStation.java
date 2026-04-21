@@ -1,4 +1,4 @@
-package ejer3genericos;
+package Ejercicio9;
 import java.util.ArrayList;
 
 public class PowerStation<T extends Cargable> {

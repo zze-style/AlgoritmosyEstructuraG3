@@ -1,9 +1,10 @@
-package generic;
+	package generic;
 
 public class Principal {
 	public static void main(String[] args) {
 		System.out.println("Chocolatina");
 		Bolsa < Chocolatina > bolsaCho = new Bolsa<>(6);
+		
 		Chocolatina c = new Chocolatina("milka");
 		Chocolatina c1 = new Chocolatina("milka");
 		Chocolatina c2 = new Chocolatina("ferrero");

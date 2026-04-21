@@ -1,18 +1,18 @@
-package ejer3genericos;
+package Ejercicio9;
 
-public class Smartphone implements Cargable {
-    private String modelo;
+public class Laptop implements Cargable {
+    private String marca;
     private double consumoVatios;
     private int nivelBateria;
 
-    public Smartphone(String modelo, double consumoVatios, int nivelBateria) {
-        this.modelo = modelo;
+    public Laptop(String marca, double consumoVatios, int nivelBateria) {
+        this.marca = marca;
         this.consumoVatios = consumoVatios;
         this.nivelBateria = nivelBateria;
     }
 
-    public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public String getMarca() { return marca; }
+    public void setMarca(String marca) { this.marca = marca; }
 
     @Override
     public double getConsumoVatios() { return consumoVatios; }
@@ -31,7 +31,7 @@ public class Smartphone implements Cargable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Smartphone that = (Smartphone) obj;
-        return modelo.equals(that.modelo);
+        Laptop that = (Laptop) obj;
+        return marca.equals(that.marca);
     }
 }
