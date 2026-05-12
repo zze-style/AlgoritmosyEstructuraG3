@@ -155,7 +155,6 @@ public class Arbol<T extends Comparable<T>> {
         }
     }
 
-    // ALTURA SIN java.util.Queue
     public int altura() {
 
         if (isEmpty())
@@ -194,7 +193,6 @@ public class Arbol<T extends Comparable<T>> {
         return altura;
     }
 
-    // Método auxiliar para contar elementos de la cola
     private int colaSize(QueueArray<Nodo<T>> cola) {
 
         QueueArray<Nodo<T>> aux = new QueueArray<>(100);
