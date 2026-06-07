@@ -1,0 +1,9 @@
+4
+9780132350884,Clean Code,Robert Martin,2008,Programacion
+9780134494166,Clean Architecture,Robert Martin,2017,Arquitectura
+9780201633610,Design Patterns,GoF,1994,Patrones
+9780596009205,Head First Java,Kathy Sierra,2005,Java
+9780262033848,Introduction to Algorithms,Cormen,2009,Algoritmos
+9780321125217,Domain Driven Design,Evans,2003,Diseno
+9780735619685,Code Complete,McConnell,2004,Programacion
+9781491950357,Fluent Python,Ramalho,2015,Python
