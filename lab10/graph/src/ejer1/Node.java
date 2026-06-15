@@ -1,0 +1,15 @@
+package ejer1;
+
+public class Node<E> {
+    private E data;
+    private Node<E> next;
+
+    public Node(E data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    public E getData()               { return data; }
+    public Node<E> getNext()         { return next; }
+    public void setNext(Node<E> n)   { this.next = n; }
+}
