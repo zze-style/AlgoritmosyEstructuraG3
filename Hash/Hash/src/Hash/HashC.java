@@ -1,0 +1,168 @@
+package Hash;
+
+/**
+ * Implementacion de tabla hash cerrada
+ * con sondeo lineal y cuadratico.
+ */
+public class HashC {
+	
+	private enum State{
+		EMPTY,
+		OCCUPIED,
+		DELETED
+	}
+
+    private static class Element {
+        Register register;
+        State state;
+        int deleted; // 0 = no se eliminó nada | 1 = había un elemento pero se eliminó
+
+        public Element() {
+            register = null;
+            state = null;
+            deleted = 0;
+        }
+    }
+
+    private Element[] table;
+    private int size;
+
+    public HashC(int size) {
+        this.size = size;
+        table = new Element[size];
+
+        for (int i = 0; i < size; i++) {
+            table[i] = new Element();
+        }
+    }
+
+    private int hash(int key) {
+        return key % size;
+    }
+
+    // ==========================
+    // INSERCION LINEAL
+    // ==========================
+    public void insertLineal(Register reg) {
+        int h = hash(reg.getKey());
+        int saltos = 0;
+        int idx = h;
+
+        while (table[idx].state == State.OCCUPIED) {
+            idx = (idx + 1) % size;
+            saltos++;
+
+            if (saltos >= size) {
+                System.out.println("Tabla llena.");
+                return;
+            }
+        }
+
+        table[idx].register = reg;
+        table[idx].state = State.OCCUPIED;
+        table[idx].deleted = 0;
+
+        System.out.println(reg.getKey()
+                + ": hash=" + h
+                + ", saltos=" + saltos
+                + ", posicion final=" + idx);
+    }
+
+    // ==========================
+    // INSERCION CUADRATICA
+    // ==========================
+    public void insertCuadratico(Register reg) {
+        int h = hash(reg.getKey());
+        int i = 0;
+        int idx = h;
+
+        while (table[idx].state == State.OCCUPIED) {
+            i++;
+
+            if (i >= size) {
+                System.out.println("Tabla llena.");
+                return;
+            }
+
+            idx = (h + i * i) % size;
+        }
+
+        table[idx].register = reg;
+        table[idx].state = State.OCCUPIED;
+        table[idx].deleted = 0;
+
+        System.out.println(reg.getKey()
+                + ": hash=" + h
+                + ", saltos=" + i
+                + ", posicion final=" + idx);
+    }
+
+    // ==========================
+    // BUSQUEDA
+    // ==========================
+    public Register search(int key) {
+        int idx = hash(key);
+        int posInit = idx;
+
+        do {
+            if (table[idx].state == State.EMPTY && table[idx].deleted == 0) { //Se frena la búsqueda si está vacío y nunca se ha borrado nada ahí. O sea, no hay nada
+                return null;
+            }
+            
+            //Si está ocupado, hay algo y verifica que la clave sea la misma
+            if (table[idx].state == State.OCCUPIED &&
+                table[idx].register != null &&
+                table[idx].register.getKey() == key) {
+                return table[idx].register;
+            }
+            
+            //Si la casilla es EMPTY pero tiene deleted == 1, ignora los if anteriores y avanza a la siguiente posición sin detener la búsqueda
+            idx = (idx + 1) % size;
+        } while (idx != posInit);
+
+        return null;
+    }
+
+    // ==========================
+    // ELIMINACION
+    // ==========================
+    public void delete(int key) {
+        int idx = hash(key);
+        int posInit = idx;
+
+        do {
+            if (table[idx].state == State.EMPTY && table[idx].deleted == 0) {
+                break;
+            }
+            //Buscamos el elemento en las casilla que sí están ocupadas (State.OCCUPIED)
+            if (table[idx].state == State.OCCUPIED &&
+                table[idx].register != null &&
+                table[idx].register.getKey() == key) {
+
+                table[idx].register = null;
+                table[idx].state = State.EMPTY; //Marcamos como vacío
+                table[idx].deleted = 1; //Dejamos el rastro de eliminación para futuras búsquedas
+                return;
+            }
+
+            idx = (idx + 1) % size;
+        } while (idx != posInit);
+
+        System.out.println("No se encontro la clave " + key);
+    }
+
+    // ==========================
+    // IMPRIMIR TABLA
+    // ==========================
+    public void printTable() {
+        for (int i = 0; i < size; i++) {
+            if (table[i].state == State.OCCUPIED) {
+                System.out.println("[" + i + "]: " + table[i].register);
+            } else if (table[i].deleted == 1) {
+                System.out.println("[" + i + "]: <ELIMINADO>");
+            } else {
+                System.out.println("[" + i + "]: vacio");
+            }
+        }
+    }
+} 
