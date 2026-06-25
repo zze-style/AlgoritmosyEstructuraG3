@@ -8,8 +8,7 @@ public class HashC {
 	
 	private enum State{
 		EMPTY,
-		OCCUPIED,
-		DELETED
+		OCCUPIED
 	}
 
     private static class Element {
